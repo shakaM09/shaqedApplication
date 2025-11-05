@@ -2,13 +2,19 @@ package com.katza.shaqedapplication;
 
 import static android.view.View.INVISIBLE;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +25,9 @@ public class MainActivity extends AppCompatActivity  {
     ImageView imageVisability;
     float alpha = 1;
     Button btnlistener;
+    private Switch myswitch;
+    private SeekBar SeekBar1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +46,42 @@ public class MainActivity extends AppCompatActivity  {
         imageView = findViewById(R.id.imageView);
         imageVisability = findViewById(R.id.imageVisability);
         imageView.setVisibility(View.VISIBLE);
-        imageVisability.setVisibility(View.INVISIBLE);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch mySwitch = findViewById(R.id.switch1);
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    imageView.setVisibility(View.INVISIBLE);
+                }
+                else{
+                    imageView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        imageVisability.setVisibility(INVISIBLE);
         btnlistener= findViewById(R.id.button2);
         btnlistener.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "aaa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        SeekBar1 = findViewById(R.id.seekBar1);
+        SeekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+               alpha = progress/100f;
+               imageView.setAlpha(alpha);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(MainActivity.this, "started traking", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(MainActivity.this, "stopped traking", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -93,5 +132,6 @@ public class MainActivity extends AppCompatActivity  {
         }
 
     }
+
 
 }
