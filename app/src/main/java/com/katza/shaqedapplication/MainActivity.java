@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity  {
 
     public void imgChange(View view) {
         if (view.getId() == R.id.press) {
+
             if (imageView.getVisibility() == View.VISIBLE) {
                 imageView.setVisibility(View.INVISIBLE);
             } else {
