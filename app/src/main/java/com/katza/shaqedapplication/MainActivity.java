@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity  {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
         initViews();
     }
 
@@ -51,7 +49,6 @@ public class MainActivity extends AppCompatActivity  {
 
     public void imgChange(View view) {
         if (view.getId() == R.id.press) {
-            Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
             if (imageView.getVisibility() == View.VISIBLE) {
                 imageView.setVisibility(View.INVISIBLE);
             } else {
