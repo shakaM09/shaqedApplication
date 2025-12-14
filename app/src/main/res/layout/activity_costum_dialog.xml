@@ -23,5 +23,12 @@
     android:textSize="30sp"
     />
 
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:textSize="30sp" />
+
 
 </LinearLayout>
