@@ -46,6 +46,12 @@ public class costumDialogActivity extends AppCompatActivity {
                 Toast.makeText(costumDialogActivity.this, sp.getString("username","") + " " + sp.getString("password",""), Toast.LENGTH_SHORT).show();
             }
         });
+        String strname = sp.getString("username",null);
+        String strpass = sp.getString("password",null);
+        if(strname!=null&& strpass!=null){
+            etUserName.setText(strname);
+            etPass.setText(strpass);
+        }
     }
     public void createLoginDialog(){
         d=new Dialog(this);
@@ -58,11 +64,15 @@ public class costumDialogActivity extends AppCompatActivity {
         btnCustomLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                SharedPreferences.Editor editor=sp.edit();
+                editor.putString("username",etUserName.getText().toString());
+                editor.putString("password",etPass.getText().toString());
+                editor.commit();
+                Toast.makeText(costumDialogActivity.this, "username password saved", Toast.LENGTH_SHORT).show();
                 d.dismiss();
             }
         });
         d.show();
     }
+
 }
