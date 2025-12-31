@@ -4,6 +4,10 @@ import static android.view.View.INVISIBLE;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -11,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity  {
     Button btnlistener;
     private Switch myswitch;
     private SeekBar SeekBar1;
+    TextView tv;
 
 
     @Override
@@ -42,7 +48,51 @@ public class MainActivity extends AppCompatActivity  {
         initViews();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id==R.id.action_login){
+            Toast.makeText(this, "You selected Login", Toast.LENGTH_SHORT).show();
+        }
+       else if (id==R.id.action_register){
+            Toast.makeText(this, "You selected Register", Toast.LENGTH_SHORT).show();
+        }
+       else if (id==R.id.action_exit){
+            Toast.makeText(this, "You selected Exit", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+    @Override
+    public void  onCreateContextMenu(ContextMenu menu, View v,ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_main,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+        if(item.getItemId()==R.id.firstline){
+            Toast.makeText(this, "You selected first line", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else if(item.getItemId()==R.id.secondline){
+            Toast.makeText(this, "You selected second line", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
+    }
+
+
     private void initViews() {
+        tv=findViewById(R.id.tv);
+        registerForContextMenu(tv);
         imageView = findViewById(R.id.imageView);
         imageVisability = findViewById(R.id.imageVisability);
         imageView.setVisibility(View.VISIBLE);
