@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item
-   android:id="@+id/action_login"
-    android:title="Login"
+   android:id="@+id/action_main"
+    android:title="Main"
     android:orderInCategory="100"
     app:showAsAction="never"/>
 
     <item
-        android:id="@+id/action_register"
-        android:title="Register"
+        android:id="@+id/action_dynamic"
+        android:title="Dynamic"
         android:orderInCategory="200"
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/action_exit"
-        android:title="Exit"
+        android:id="@+id/action_prefrences"
+        android:title="Prefrences"
         android:orderInCategory="300"
         app:showAsAction="never"/>
 

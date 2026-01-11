@@ -3,6 +3,7 @@ package com.katza.shaqedapplication;
 import static android.view.View.INVISIBLE;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -57,14 +58,23 @@ public class MainActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(MenuItem item){
         super.onOptionsItemSelected(item);
         int id = item.getItemId();
-        if (id==R.id.action_login){
-            Toast.makeText(this, "You selected Login", Toast.LENGTH_SHORT).show();
+        if (id==R.id.action_main){
+            Toast.makeText(this, "You selected main", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
-       else if (id==R.id.action_register){
-            Toast.makeText(this, "You selected Register", Toast.LENGTH_SHORT).show();
+       else if (id==R.id.action_dynamic){
+            Toast.makeText(this, "You selected dynamic", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, DynamicActivity.class);
+            startActivity(intent);
+            finish();
         }
-       else if (id==R.id.action_exit){
-            Toast.makeText(this, "You selected Exit", Toast.LENGTH_SHORT).show();
+       else if (id==R.id.action_prefrences){
+            Toast.makeText(this, "You selected prefrences", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SharedProgressionActivity.class);
+            startActivity(intent);
+            finish();
         }
         return true;
     }
