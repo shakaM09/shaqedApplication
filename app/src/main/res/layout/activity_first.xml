@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActivityFirst"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/etAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Age"
+        android:inputType="number"
+        android:layout_marginTop="12dp" />
+
+    <CheckBox
+        android:id="@+id/cbMale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Male?"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send to Activity Second"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/tvAgeDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age: Not Set"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnSelectBirthYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Birth Year"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>
