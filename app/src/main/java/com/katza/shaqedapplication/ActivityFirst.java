@@ -21,7 +21,6 @@ import java.util.Calendar;
 public class ActivityFirst extends AppCompatActivity {
     private TextView tvAgeDisplay;
 
-    // Register a callback for the result from ActivitySecond
     private final ActivityResultLauncher<Intent> startForResult = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {

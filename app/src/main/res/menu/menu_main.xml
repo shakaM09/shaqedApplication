@@ -18,5 +18,10 @@
         android:title="Prefrences"
         android:orderInCategory="300"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_list_view"
+        android:title="List"
+        android:orderInCategory="300"
+        app:showAsAction="never"/>
 
 </menu>

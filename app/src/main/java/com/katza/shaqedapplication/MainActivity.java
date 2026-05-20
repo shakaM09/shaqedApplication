@@ -76,6 +76,12 @@ public class MainActivity extends AppCompatActivity  {
             startActivity(intent);
             finish();
         }
+        else if (id==R.id.action_list_view){
+            Toast.makeText(this, "You selected prefrences", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, ListViewActivity.class);
+            startActivity(intent);
+            finish();
+        }
         return true;
     }
     @Override
